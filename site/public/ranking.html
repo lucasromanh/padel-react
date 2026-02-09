@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ranking de Socios - Padel Club</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#afff24",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#121212",
+                        "surface-dark": "#1c230f",
+                        "border-dark": "#333a27",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(175, 255, 36, 0.3);
+        }
+
+        .neon-border {
+            border: 2px solid #afff24;
+            box-shadow: 0 0 10px rgba(175, 255, 36, 0.5);
+        }
+
+        .podium-gradient {
+            background: radial-gradient(circle at center, rgba(175, 255, 36, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-border-dark bg-background-dark/80 backdrop-blur-md px-6 md:px-20 py-4">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="text-primary">
+                    <span class="material-symbols-outlined text-4xl">sports_tennis</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight">Padel<span class="text-primary">Club</span></h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Inicio</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="reservas.html">Reservas</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="partidos.html">Partidos</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="torneos.html">Torneos</a>
+                <a class="text-sm font-medium text-primary border-b-2 border-primary pb-1"
+                    href="ranking.html">Ranking</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="p-2 hover:bg-surface-dark rounded-full transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <div
+                    class="h-10 w-10 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center overflow-hidden">
+                    <img class="w-full h-full object-cover" data-alt="User profile avatar of current member"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuClgGbJ_eXIZmBhAjFZupyvHAbVMMaA7zfnvwpGMwJxpM8DBCznwpAG51ZU6rjgebhfG-R0mbJZ7OIVINY5syxsrcbl1hjRMl0z7BdUT-PFZfdDb00qRmWTZ_90ypYqbmJVENzxmmoejOlEagb-bVdJm0xkDOriJ8G3g4pNRA605_IKZZ0CtOiKqia_smxPa61HPC0yC_FvexhJYwdfQBiQt5ZT1B73Ug7OeNxU0k01QPfT0ONhI8r40VBq3bjTG6FVQ_xdxXGzunVq" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1200px] mx-auto px-6 py-10">
+        <!-- Hero Title Section -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Ranking de Jugadores</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Domina la pista, sube de nivel y compite por el primer puesto en
+                nuestra comunidad exclusiva de padel.</p>
+        </div>
+        <!-- Podium Section -->
+        <div class="podium-gradient relative grid grid-cols-1 md:grid-cols-3 gap-8 items-end mb-16 px-4">
+            <!-- 2nd Place -->
+            <div class="flex flex-col items-center order-2 md:order-1 mb-4 md:mb-0">
+                <div class="relative mb-4">
+                    <div class="w-32 h-32 rounded-full border-4 border-slate-400 p-1 overflow-hidden">
+                        <img class="w-full h-full object-cover rounded-full" data-alt="Player profile 2nd place"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQynOmzMOiHK4DiZsJ396S_li1hpHoeSsZO6tbHkwYqlcH42qd7GYL3Ez1yipQZ2k95nvH269Zwr_tswKlx6145c6UjemHnwf4J4g_0MwNGVCetdtd-vW8CDsDYrAyFGeVBNFq-2HTByCZzwMk2SYjJoMFseeukqIXaCA64eRAPIXCeVYjFoVJ1mN-SCgXNci6TuEJ_08qMJthx1iN7StA2DQGQJ1VPTO19Nnwmfpwgg7xcwN-Xm298tMKlEdcjMp2MMwBexM4QtgT" />
+                    </div>
+                    <div
+                        class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-400 text-background-dark px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">workspace_premium</span> 2
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold">Carlos Ruiz</h3>
+                <p class="text-primary font-medium">2350 pts</p>
+                <div class="mt-4 h-24 w-full max-w-[180px] bg-white/5 border-t-4 border-slate-400 rounded-t-lg"></div>
+            </div>
+            <!-- 1st Place -->
+            <div class="flex flex-col items-center order-1 md:order-2">
+                <div class="relative mb-6">
+                    <div class="w-40 h-40 rounded-full border-4 border-primary p-1 overflow-hidden neon-glow">
+                        <img class="w-full h-full object-cover rounded-full" data-alt="Player profile 1st place"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ_vZhk1bCttQlBbLgzj5v9YfGY6W3stn3z4IMTRkOatxEAMFQobBCZ_7FPLCGtIyXXuLleou0Ns6Q1JDdJZ7ihqoZkRuVUurZGYP8yqzO1qHQwzrGit37WwWy5hCKD-i70TndFa0Gk8FMdA1zHvKH0QQ9s9d3boH0J1nCtOBpeq0TUE9RqmKtnpcI9AnoZdkMzDu8kGF6wlxH9cILSUsi8Yilp2cvnTJpLvBUzqbbS-nBUeo7sTU1ABzudlur_6WBd7VgB326i8y4" />
+                    </div>
+                    <div
+                        class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-background-dark px-4 py-1.5 rounded-full text-sm font-black flex items-center gap-1">
+                        <span class="material-symbols-outlined text-base">emoji_events</span> 1
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black text-primary">Alejandro G.</h3>
+                <p class="text-white font-medium text-lg">2500 pts</p>
+                <div class="mt-4 h-36 w-full max-w-[220px] bg-primary/10 border-t-4 border-primary rounded-t-lg"></div>
+            </div>
+            <!-- 3rd Place -->
+            <div class="flex flex-col items-center order-3 md:order-3 mb-4 md:mb-0">
+                <div class="relative mb-4">
+                    <div class="w-32 h-32 rounded-full border-4 border-orange-700 p-1 overflow-hidden">
+                        <img class="w-full h-full object-cover rounded-full" data-alt="Player profile 3rd place"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS1X3KgjtTX9TSjI2REddKcMcS_xgwNtp6tVzMDGjEh59poMYyQgBtpa_btRoouPoMuITVdTky5LFLtamcXk257BCU5AYYAd8Lv8oHWw6-FmGPl_88ql1Pz69HjDpDmQyMGqG8L2M60ZqBzenn3c5SiM76dfhfjG2ettIL3CNJFachbcl9wXbR4jyDZgUBdoap6uf91M4MG0PK9ryuyqJK07tmvpjl0VvyAu6Ly7FJJ872ayPsoX6lm6UVyiwTUH17zbUwU5DNuo6V" />
+                    </div>
+                    <div
+                        class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-orange-700 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">workspace_premium</span> 3
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold">Marta Sanz</h3>
+                <p class="text-primary font-medium">2210 pts</p>
+                <div class="mt-4 h-16 w-full max-w-[180px] bg-white/5 border-t-4 border-orange-700 rounded-t-lg"></div>
+            </div>
+        </div>
+        <!-- Filters Section -->
+        <div
+            class="bg-surface-dark p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 mb-8 border border-border-dark">
+            <div class="flex items-center gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+                <button
+                    class="px-6 py-2 bg-primary text-background-dark rounded-full font-bold text-sm whitespace-nowrap">Masculino</button>
+                <button
+                    class="px-6 py-2 bg-white/5 text-slate-400 hover:text-white rounded-full font-bold text-sm whitespace-nowrap transition-colors">Femenino</button>
+                <button
+                    class="px-6 py-2 bg-white/5 text-slate-400 hover:text-white rounded-full font-bold text-sm whitespace-nowrap transition-colors">Mixto</button>
+            </div>
+            <div class="flex flex-wrap items-center gap-6 w-full md:w-auto">
+                <div class="flex items-center gap-3 w-full md:w-64">
+                    <span class="text-sm text-slate-400 whitespace-nowrap">Nivel:</span>
+                    <div class="flex-1 h-1.5 bg-border-dark rounded-full relative">
+                        <div class="absolute left-1/4 right-0 h-full bg-primary rounded-full"></div>
+                        <div
+                            class="absolute left-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg cursor-pointer">
+                        </div>
+                        <div
+                            class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg cursor-pointer">
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-primary">2.5 - 7.0</span>
+                </div>
+                <select
+                    class="bg-background-dark border-border-dark rounded-lg text-sm px-4 py-2 focus:ring-primary focus:border-primary outline-none text-white">
+                    <option>Temporada 2024</option>
+                    <option>Historico</option>
+                </select>
+            </div>
+        </div>
+        <!-- Ranking Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-separate border-spacing-y-3">
+                <thead>
+                    <tr class="text-slate-400 text-sm uppercase tracking-wider">
+                        <th class="px-6 py-3 font-medium">#</th>
+                        <th class="px-6 py-3 font-medium">Jugador</th>
+                        <th class="px-6 py-3 font-medium">Nivel</th>
+                        <th class="px-6 py-3 font-medium">Puntos</th>
+                        <th class="px-6 py-3 font-medium">Partidos</th>
+                        <th class="px-6 py-3 font-medium text-center">Win Rate (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1 (User Highlight) -->
+                    <tr
+                        class="bg-surface-dark group hover:bg-surface-dark/80 transition-all cursor-pointer neon-border">
+                        <td class="px-6 py-4 rounded-l-xl font-bold text-primary">12</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+                                    <img class="w-full h-full object-cover" data-alt="User current player avatar"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzkJKfIY-m0177mad1S15AT4m8IRyRwMzMuS0srvjYvCvDsy2W58UVT29pbYGWu49udQtqVUq9YghE7RCJfS18gjbOnC93LU-aYdng5yNEGJlugJIiBFa2GwYZtznDwKz6EehEKVb-9g-Uet3DiTsOGNYxzwtzoxQ1rib4ucRAPrIdFVG-ooZwXIxNMdRJZzWMzHVf4I7khKvBP8Cw2AGJUZIeEGL8vuVk6Id1wjDh5SG8wCtMg-MHqSvhgOvpeeuSPSZG6ALjngsw" />
+                                </div>
+                                <div>
+                                    <span class="font-bold block">Tú (Diego Pérez)</span>
+                                    <span class="text-xs text-primary italic">Sube un puesto hoy</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold">4.8</span>
+                        </td>
+                        <td class="px-6 py-4 font-bold">1,820</td>
+                        <td class="px-6 py-4 text-slate-400">45</td>
+                        <td class="px-6 py-4 rounded-r-xl">
+                            <div class="flex items-center justify-center gap-2">
+                                <div class="w-full max-w-[80px] h-1.5 bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary" style="width: 68%;"></div>
+                                </div>
+                                <span class="text-xs font-bold">68%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Other Rows -->
+                    <tr class="bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+                        <td class="px-6 py-4 rounded-l-xl font-bold text-slate-400">4</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full overflow-hidden border border-border-dark">
+                                    <img class="w-full h-full object-cover" data-alt="Player profile portrait"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQDxBUvRSPAXqPrVjCeZAH_F5wobceIYq__VSQ_xXqR1QOaIUmIAMskCsolVDzS7CzFJobs5j0CM4CTn3MCNk9RFOXC_y7957I2Fs4BsOuSTI1GKaEJiEbwUSJT1J_-av7ieOMdCRpNOc7w9t2BrbLkWPjH0gbc1bbVU1OmugLEPzJvJuONkBMyxQezr8NgAAGKnq1-Ja3kWsmoyT0xanrw8yFmln55aurVTsQ0OcKGHJKye1rc0PnYPYLxJspv87W_hW6V_WELSdC" />
+                                </div>
+                                <span class="font-bold">Lucía Domínguez</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="bg-white/10 text-white px-3 py-1 rounded-full text-xs font-bold">5.2</span>
+                        </td>
+                        <td class="px-6 py-4 font-bold">2,150</td>
+                        <td class="px-6 py-4 text-slate-400">58</td>
+                        <td class="px-6 py-4 rounded-r-xl">
+                            <div class="flex items-center justify-center gap-2">
+                                <div class="w-full max-w-[80px] h-1.5 bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary" style="width: 74%;"></div>
+                                </div>
+                                <span class="text-xs font-bold">74%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+                        <td class="px-6 py-4 rounded-l-xl font-bold text-slate-400">5</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full overflow-hidden border border-border-dark">
+                                    <img class="w-full h-full object-cover" data-alt="Player profile portrait"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUAF5R-YkGzt6rJGvk7JB1cQdn_IaO_nRQkHMY4zZCtoYtvz4xRP_4ZQIi0_v6kAS52GIigSFH024tL363UlIG0SvD5tR04Glu4dNRlVQ4yVH_TUg2EXsw_d9YXJIwiO5-ivwdeOHfhoCcOGYmbS7wV_BSObpGP73RKaChwIrhvDdy8QUBTWqqTErwuODy4Q266h5dmJCVcyP8TCsu5ISlb7EpjY7FiAEQ1ijFuG8jukMzLXTXBIxzHK8PLvhyZLOWk9LFBYDez4w2" />
+                                </div>
+                                <span class="font-bold">Sofia Méndez</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="bg-white/10 text-white px-3 py-1 rounded-full text-xs font-bold">4.5</span>
+                        </td>
+                        <td class="px-6 py-4 font-bold">2,080</td>
+                        <td class="px-6 py-4 text-slate-400">42</td>
+                        <td class="px-6 py-4 rounded-r-xl">
+                            <div class="flex items-center justify-center gap-2">
+                                <div class="w-full max-w-[80px] h-1.5 bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary" style="width: 61%;"></div>
+                                </div>
+                                <span class="text-xs font-bold">61%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+                        <td class="px-6 py-4 rounded-l-xl font-bold text-slate-400">6</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full overflow-hidden border border-border-dark">
+                                    <img class="w-full h-full object-cover" data-alt="Player profile portrait"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyobxfGEVf79d72ufuKYiPXQtyVNZAabmJjtTTkah3wRdQ03qYB0HYIUUVh-bsY5JMFebwTpT6uAI_xJ8cM01jLq7uUS7rtSz5H3hIKLjpXgGaqhl3RmD-yKQ6oo3rTbM-4WpD2EYyFRLbofU8FXgSBo8-gk5eCChGxnJh2AbfwYzGUZR9qTgzydzwUdSM_60lP0rFvT_NHS9qE0v-BW_bkF6NVdAKsvcRyNjw3IfCzH1JPCYiMnWrwxsKTM0BLxVnYuWGJCUJ-Ttv" />
+                                </div>
+                                <span class="font-bold">Javier Ortiz</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="bg-white/10 text-white px-3 py-1 rounded-full text-xs font-bold">4.9</span>
+                        </td>
+                        <td class="px-6 py-4 font-bold">1,995</td>
+                        <td class="px-6 py-4 text-slate-400">50</td>
+                        <td class="px-6 py-4 rounded-r-xl">
+                            <div class="flex items-center justify-center gap-2">
+                                <div class="w-full max-w-[80px] h-1.5 bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary" style="width: 58%;"></div>
+                                </div>
+                                <span class="text-xs font-bold">58%</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Pagination/Load More -->
+        <div class="flex justify-center mt-12">
+            <button
+                class="flex items-center gap-2 px-8 py-3 bg-surface-dark border border-border-dark hover:border-primary text-white font-bold rounded-full transition-all group">
+                Cargar más jugadores
+                <span
+                    class="material-symbols-outlined group-hover:translate-y-1 transition-transform">keyboard_arrow_down</span>
+            </button>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-border-dark py-12 bg-surface-dark/30">
+        <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary text-3xl">sports_tennis</span>
+                    <h2 class="text-xl font-bold">Padel<span class="text-primary">Club</span></h2>
+                </div>
+                <p class="text-slate-400 max-w-sm mb-6">Las mejores instalaciones de la ciudad con la comunidad más
+                    competitiva. ¡Únete y mejora tu juego!</p>
+                <div class="flex items-center gap-4">
+                    <a class="text-slate-400 hover:text-primary" href="#"><span
+                            class="material-symbols-outlined">social_leaderboard</span></a>
+                    <a class="text-slate-400 hover:text-primary" href="#"><span
+                            class="material-symbols-outlined">photo_camera</span></a>
+                    <a class="text-slate-400 hover:text-primary" href="#"><span
+                            class="material-symbols-outlined">video_library</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Club</h4>
+                <ul class="space-y-3 text-slate-400 text-sm">
+                    <li><a class="hover:text-primary transition-colors" href="#">Nuestras Pistas</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Escuela de Padel</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Eventos Especiales</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Tienda</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Soporte</h4>
+                <ul class="space-y-3 text-slate-400 text-sm">
+                    <li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-[1200px] mx-auto px-6 mt-12 pt-8 border-t border-border-dark flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>© 2026 Padel Club Center. Todos los derechos reservados.</p>
+            <div class="flex gap-6">
+                <span>📍 Calle Deportiva 123, Madrid</span>
+                <span>📞 +34 900 000 000</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

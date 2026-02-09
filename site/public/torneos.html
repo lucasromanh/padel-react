@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Padel Club - Torneos y Cuadros</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#afff24",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#121212",
+                        "court-charcoal": "#1a1a1a",
+                        "surface-dark": "#242424",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .bracket-line {
+            position: absolute;
+            border-color: #333a27;
+            border-style: solid;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #121212;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333a27;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #afff24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen transition-colors duration-300">
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-10">
+                <div class="flex items-center gap-2">
+                    <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                        <span class="material-symbols-outlined font-bold">sports_tennis</span>
+                    </div>
+                    <h1 class="text-xl font-bold tracking-tight">Padel<span class="text-primary">Club</span></h1>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Inicio</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="reservas.html">Reservas</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="partidos.html">Partidos</a>
+                    <a class="text-sm font-bold text-primary border-b-2 border-primary pb-1 mt-1"
+                        href="torneos.html">Torneos</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="ranking.html">Ranking</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative hidden sm:block">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                    <input
+                        class="bg-court-charcoal border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64 text-white"
+                        placeholder="Buscar torneos..." type="text" />
+                </div>
+                <button class="p-2 hover:bg-white/10 rounded-full relative">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+                </button>
+                <div class="size-9 rounded-full bg-cover bg-center border border-white/20"
+                    data-alt="User profile avatar"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKxgKZYOM-X8aNKUhH38uRTK_47rTigAIPBzElN3Qq0C47N17ZLiUn6Kp6oVrG1MpGij-6oizUehJiJX8pb4_nOsjSfeY2vMsjXn0dhGImS-F3DMLUKkCD8kJmkjA3aOwWb8VC5sZKCTDSDRLpV0fqEp6HJOqmG37WTcqexWWaYjULYTg1EFDUi947ms1Nb-9KBofoS6xsLFvjoO-Gum2ySyRHG1tJMvFqIg5ZBsun2PEN2M_4mymUwRC9GCdWaWjmg8kG0Dxg1x3j')">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Hero Section -->
+        <div class="mb-10">
+            <h2 class="text-4xl font-black mb-2 italic">ARENA DE TORNEOS</h2>
+            <p class="text-slate-500 dark:text-gray-400 max-w-2xl text-lg">Inscríbete en las próximas competiciones,
+                sigue los cuadros en vivo y escala posiciones en el ranking oficial del club.</p>
+        </div>
+        <!-- Shadcn-like Tabs -->
+        <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
+            <div class="inline-flex p-1 bg-court-charcoal rounded-lg">
+                <button class="px-6 py-2 text-sm font-medium rounded-md transition-all">En curso</button>
+                <button
+                    class="px-6 py-2 text-sm font-bold bg-background-dark text-primary shadow-sm rounded-md transition-all">Próximos</button>
+                <button class="px-6 py-2 text-sm font-medium rounded-md transition-all">Finalizados</button>
+            </div>
+            <div class="flex items-center gap-3">
+                <button
+                    class="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-court-charcoal rounded-lg hover:bg-surface-dark transition-colors">
+                    <span class="material-symbols-outlined text-sm">filter_list</span>
+                    Filtrar Categoria
+                </button>
+            </div>
+        </div>
+        <!-- Tournament Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- Card 1 -->
+            <div
+                class="group bg-court-charcoal rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 flex flex-col">
+                <div class="relative h-48 bg-cover bg-center" data-alt="Vibrant padel match on blue court"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCn4SFFWeS5RvT0u3-p1d3BAj7q1r6v5Wtz4l2iLqW-aUwDWkiFiAAu9XS0t-qVJBYpobmqx2p--n85VBhmMqHWSFrBNKWZ6lOjaUHkj_z50IzzpnRd1v7cY5p3UcstF8hfd8sQ95lOzY1tKA-MlzpOpuXqRrBHpesGt5u0C9BT5I9oCCLJCtEnTw9SnhmF0bAyu-avIhIiARm7vuvqArHP6I27e_u0akVq5GyEcy7FjQRqyvmzNYNxttCrqSdHI4WpJsgtMYSSStup')">
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-primary text-background-dark text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-widest">Inscripciones
+                            Abiertas</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold">Open Primavera 2024</h3>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-300">4ta Masculina</span>
+                    </div>
+                    <div class="space-y-2 mb-6 text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            <span>15 May - 20 May</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">emoji_events</span>
+                            <span>$500 + Palas Head Graphene</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto flex gap-3">
+                        <button
+                            class="flex-1 bg-primary text-background-dark font-bold py-2.5 rounded-lg hover:brightness-110 transition-all text-sm">Inscribirme</button>
+                        <button class="px-3 border border-white/20 rounded-lg hover:bg-white/5 transition-colors">
+                            <span class="material-symbols-outlined text-slate-300">share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+                class="group bg-court-charcoal rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 flex flex-col">
+                <div class="relative h-48 bg-cover bg-center" data-alt="Neon padel court night photography"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIlKmkoT6YJ3_4oZ8k_4IwfP1GKukBcqywDNsEh6Lj4j6ZHkxxk87XiuNZpGIGlUrKWyWTamGJC10TZx2WLjJ-9VKHMGTj0Dq5JWpx4XIXokp2rIefuxxhqSQM0GFS_hN9qkpw6SrINIAOuw68X_VSun4A5xG16XZVHbJpAllEg2pJKJ57MVjCHNMZ5FdyucJg41TIQshhZq_E1xN9OE5ec6zoxiBcIHdkaVm7-71y3gulyqaITIV6UDHLPzKVDAMaZjTgMBOo7tuI')">
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-primary text-background-dark text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-widest">Inscripciones
+                            Abiertas</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold">Torneo Nocturno Neon</h3>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-300">3ra Mixta</span>
+                    </div>
+                    <div class="space-y-2 mb-6 text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            <span>22 May - 25 May</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">emoji_events</span>
+                            <span>Indumentaria Bullpadel Pro</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto flex gap-3">
+                        <button
+                            class="flex-1 bg-primary text-background-dark font-bold py-2.5 rounded-lg hover:brightness-110 transition-all text-sm">Inscribirme</button>
+                        <button class="px-3 border border-white/20 rounded-lg hover:bg-white/5 transition-colors">
+                            <span class="material-symbols-outlined text-slate-300">share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div
+                class="group bg-court-charcoal rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 flex flex-col">
+                <div class="relative h-48 bg-cover bg-center" data-alt="Padel trophy and rackets on display"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4XThGcbB63bOJUG6R2dhjQ1ASLHtlESKDr6zkuJM76Bnh_udF9TZ8if-lWUp83hz8q-Ve1LN_XdWoQsMegao7I8XVFHNcT3KjV3BSJlfp_I5uA-GdKkQFtEpRwfOKY8i2MTlk_xiTHQcsbDIbkV5IjFIYkb6i_ea3Iy5iGROgcPUXoQSxBO1UrchF1pSOsIRl2zWN6VzrIiHEFZ_3geOdVRnPBpMYw36IWBZkJSNyUaJbryLYCbmbsIUHs0_ygkJMzDOeXTlk4HHx')">
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-white/20 text-white text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-widest">Próximamente</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold">Copa de Campeones</h3>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded text-slate-300">1ra Profesional</span>
+                    </div>
+                    <div class="space-y-2 mb-6 text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            <span>01 Jun - 05 Jun</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">emoji_events</span>
+                            <span>$1500 + Trofeo Crystal Padel</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto flex gap-3">
+                        <button
+                            class="flex-1 bg-court-charcoal border border-white/10 text-white font-bold py-2.5 rounded-lg opacity-50 cursor-not-allowed text-sm">Cerrado</button>
+                        <button class="px-3 border border-white/20 rounded-lg hover:bg-white/5 transition-colors">
+                            <span class="material-symbols-outlined text-slate-300">share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bracket Preview Section -->
+        <div class="bg-court-charcoal rounded-xl p-8 border border-white/10">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-1">Cuadro en Vivo: <span class="text-primary">Master Series
+                            Club</span></h3>
+                    <p class="text-sm text-slate-400">Categoría 2da Masculina - Actualizado hace 5 mins</p>
+                </div>
+                <button
+                    class="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm border border-white/10 transition-all">
+                    <span class="material-symbols-outlined text-lg">fullscreen</span>
+                    Ver pantalla completa
+                </button>
+            </div>
+            <div class="overflow-x-auto custom-scrollbar pb-6">
+                <div class="flex gap-16 min-w-[1000px] justify-between relative px-4">
+                    <!-- Round 1: Cuartos -->
+                    <div class="flex flex-col justify-around gap-12 w-64">
+                        <h4 class="text-center text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">Cuartos
+                            de Final</h4>
+                        <!-- Match 1 -->
+                        <div class="space-y-1">
+                            <div class="bg-surface-dark border-l-4 border-primary p-3 rounded-r-lg relative">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Gomez / Ruiz</span>
+                                    <span class="text-xs font-black text-primary">6 6</span>
+                                </div>
+                                <div class="flex justify-between items-center opacity-60">
+                                    <span class="text-sm">Diaz / Lopez</span>
+                                    <span class="text-xs font-black">2 4</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Match 2 -->
+                        <div class="space-y-1">
+                            <div class="bg-surface-dark border-l-4 border-white/10 p-3 rounded-r-lg relative">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Sosa / Perez</span>
+                                    <span class="text-xs font-black">3 2</span>
+                                </div>
+                                <div class="flex justify-between items-center text-primary">
+                                    <span class="text-sm font-medium">Mendez / Luna</span>
+                                    <span class="text-xs font-black">6 6</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Match 3 -->
+                        <div class="space-y-1">
+                            <div class="bg-surface-dark border-l-4 border-primary p-3 rounded-r-lg relative">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Blanco / Castro</span>
+                                    <span class="text-xs font-black text-primary">6 7</span>
+                                </div>
+                                <div class="flex justify-between items-center opacity-60">
+                                    <span class="text-sm">Vera / Ortiz</span>
+                                    <span class="text-xs font-black">4 5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Match 4 -->
+                        <div class="space-y-1">
+                            <div class="bg-surface-dark border-l-4 border-white/10 p-3 rounded-r-lg relative">
+                                <div class="flex justify-between items-center mb-1 opacity-60">
+                                    <span class="text-sm">Navarro / Gil</span>
+                                    <span class="text-xs font-black">1 1</span>
+                                </div>
+                                <div class="flex justify-between items-center text-primary">
+                                    <span class="text-sm font-medium">Arias / Silva</span>
+                                    <span class="text-xs font-black">6 6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Round 2: Semifinales -->
+                    <div class="flex flex-col justify-around gap-12 w-64">
+                        <h4 class="text-center text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">
+                            Semifinales</h4>
+                        <!-- Match 5 -->
+                        <div class="space-y-1">
+                            <div class="bg-surface-dark border border-primary/20 p-3 rounded-lg ring-1 ring-primary/30">
+                                <div class="flex justify-between items-center mb-1 text-primary">
+                                    <span class="text-sm font-bold">Gomez / Ruiz</span>
+                                    <span class="text-xs font-black">6 3 6</span>
+                                </div>
+                                <div class="flex justify-between items-center opacity-60">
+                                    <span class="text-sm">Mendez / Luna</span>
+                                    <span class="text-xs font-black">4 6 2</span>
+                                </div>
+                                <div class="mt-2 pt-2 border-t border-white/5 flex items-center gap-2">
+                                    <span class="size-1.5 bg-red-500 rounded-full animate-pulse"></span>
+                                    <span class="text-[10px] text-slate-400 uppercase font-bold">En Vivo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Match 6 -->
+                        <div class="space-y-1 opacity-50 grayscale hover:grayscale-0 transition-all">
+                            <div class="bg-surface-dark border border-white/5 p-3 rounded-lg">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Blanco / Castro</span>
+                                    <span class="text-xs font-black">-</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-medium">Arias / Silva</span>
+                                    <span class="text-xs font-black">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Round 3: Final -->
+                    <div class="flex flex-col justify-center gap-12 w-64">
+                        <h4
+                            class="text-center text-xs uppercase tracking-widest text-primary font-black mb-4 flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">workspace_premium</span>
+                            Gran Final
+                        </h4>
+                        <div
+                            class="relative p-6 rounded-2xl bg-gradient-to-br from-court-charcoal to-surface-dark border-2 border-primary/50 shadow-[0_0_30px_-10px_rgba(175,255,36,0.3)]">
+                            <div class="space-y-4">
+                                <div class="text-center pb-2 border-b border-white/5">
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Finalista A</p>
+                                    <p class="text-lg font-black text-primary">Gomez / Ruiz</p>
+                                </div>
+                                <div class="flex justify-center py-2">
+                                    <span class="text-3xl font-black italic text-white/10">VS</span>
+                                </div>
+                                <div class="text-center pt-2 border-t border-white/5">
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Finalista B</p>
+                                    <p class="text-lg font-black text-slate-400">TBD</p>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-background-dark px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">
+                                Domingo 20:00h
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-20 border-t border-white/5 py-12 bg-court-charcoal/50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2">
+                <div class="size-6 bg-primary rounded flex items-center justify-center text-background-dark">
+                    <span class="material-symbols-outlined text-sm font-bold">sports_tennis</span>
+                </div>
+                <h1 class="text-lg font-bold tracking-tight">Padel<span class="text-primary">Club</span></h1>
+            </div>
+            <div class="flex gap-8 text-sm text-slate-500">
+                <a class="hover:text-white" href="#">Privacidad</a>
+                <a class="hover:text-white" href="#">Términos</a>
+                <a class="hover:text-white" href="#">Contacto</a>
+                <a class="hover:text-white" href="#">Soporte</a>
+            </div>
+            <p class="text-sm text-slate-600">© 2026 Padel Club Hub. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

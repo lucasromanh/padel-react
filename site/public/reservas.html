@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Court Reservations - Padel Club</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#afff24",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#121212",
+                        "surface-dark": "#1E1E1E",
+                        "border-dark": "#2A2A2A"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-12 py-3">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                    <span class="material-symbols-outlined font-bold">sports_tennis</span>
+                </div>
+                <h2 class="text-xl font-bold leading-tight tracking-tight dark:text-white">Padel Club</h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                    href="index.html">Inicio</a>
+                <a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1"
+                    href="reservas.html">Reservas</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                    href="partidos.html">Mis Partidos</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                    href="torneos.html">Torneos</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="flex items-center justify-center p-2 rounded-full hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors">
+                    <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+                </button>
+                <div class="h-10 w-10 rounded-full border-2 border-primary p-0.5">
+                    <img alt="User profile" class="w-full h-full object-cover rounded-full"
+                        data-alt="Close up portrait of a young athlete"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXLlpI9x09T-DJizYXI4UGGwoB5GSpYDH5y_zdHIJ-Xk4_UMW5CWHOwB6aWF26k-LDBlh4RYYOf4krM2A2brNPRhCP1fDwdVvR2GHAYUrmMIco_U4k4tbm4Si2rbeUlPzv6t8PCKzdRI7kN7vfSjau-3bVHxUi7bTC_5HW4JHpyGubrOlliTC4C7_d7Fb_8ot739b1Ysx02NJGl467x_Oc0IrF928aJYiNEHyXs9QwZKl8oGV-SfKyezFoYidFP8lGuORkUqHrzsGN" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left Content Area -->
+            <div class="flex-1 space-y-8">
+                <!-- Date Selector -->
+                <section>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold">Seleccionar Fecha</h3>
+                        <button class="text-primary text-sm font-medium flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">calendar_month</span>
+                            Calendario Completo
+                        </button>
+                    </div>
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+                        <!-- Date Item Active -->
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-primary text-background-dark shadow-lg shadow-primary/20 cursor-pointer">
+                            <span class="text-xs font-bold uppercase">Hoy</span>
+                            <span class="text-xl font-extrabold tracking-tight">12</span>
+                        </div>
+                        <!-- Date Items -->
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Tue</span>
+                            <span class="text-xl font-bold">13</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Wed</span>
+                            <span class="text-xl font-bold">14</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Thu</span>
+                            <span class="text-xl font-bold">15</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Fri</span>
+                            <span class="text-xl font-bold">16</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Sat</span>
+                            <span class="text-xl font-bold">17</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Sun</span>
+                            <span class="text-xl font-bold">18</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-slate-100 dark:bg-surface-dark border border-transparent dark:border-border-dark hover:border-primary/50 cursor-pointer transition-all">
+                            <span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">Mon</span>
+                            <span class="text-xl font-bold">19</span>
+                        </div>
+                    </div>
+                </section>
+                <!-- Available Courts -->
+                <section class="space-y-6">
+                    <h3 class="text-lg font-bold">Canchas Disponibles</h3>
+                    <!-- Court Card 1 -->
+                    <div
+                        class="bg-slate-100 dark:bg-surface-dark rounded-xl overflow-hidden border border-slate-200 dark:border-border-dark">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-64 h-48 md:h-auto overflow-hidden">
+                                <img alt="Padel Court" class="w-full h-full object-cover"
+                                    data-alt="Modern indoor padel court with blue turf"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRDR7NDIHczE-OAJnXgYpmCwFysLjhvbVJBePZDI0_ci9s6VYGhE4ybzSuVGfVYV32vv2iuu31tH42tSmSQzjHE4HtoH-yDzDubOuc_zNWFnvn0JgeT34g_KCpKsve_DGG6go0vGmS79452aerqd2P-C7CzleANU3zy17-QUtI4C8LbF3eiYZ_zHDu92uOzpTd_NnRIcJcm4cXcGlzvICzzJFsFdnGbvA0yexvoOfHqZvj2bJutawvKKS9J1Vn9zE-oSRx-BgH1CHJ" />
+                            </div>
+                            <div class="p-6 flex-1">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div>
+                                        <h4 class="text-xl font-bold">Cancha 1 - Panoramic</h4>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">Cancha de cristal
+                                            profesional • Iluminación Premium</p>
+                                    </div>
+                                    <span
+                                        class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                        <span class="size-1.5 bg-primary rounded-full"></span>
+                                        Disponible
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3">
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary/50 hover:bg-primary/5 transition-all text-slate-400 cursor-not-allowed line-through">08:00</button>
+                                    <button
+                                        class="py-2 border border-primary bg-primary text-background-dark rounded-lg text-sm font-bold shadow-lg shadow-primary/20 transition-all">09:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">11:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">12:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">14:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">15:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">17:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">18:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">20:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">21:30</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Court Card 2 -->
+                    <div
+                        class="bg-slate-100 dark:bg-surface-dark rounded-xl overflow-hidden border border-slate-200 dark:border-border-dark">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-64 h-48 md:h-auto overflow-hidden">
+                                <img alt="Padel Court" class="w-full h-full object-cover"
+                                    data-alt="Outdoor padel court surrounded by trees"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaugA5IvHPlxSmSB0Jra2LK8D1TwruSLQKbDkqSlAFCg5gt-ZbwvMD1mUoQ_nuVzS7Zba-3dHhCYgOZ3ky2-pHnBLpxf57apzV5HU_KQNfpvqmgRgnphoj5wcOviZqG-FcbQ1LyF6InFYHHhzdF-cZrA05dEQR3oo99-UsvOJ67nAIAW5UK88NbkuH8DIAaRL9qobwwPTjkFyE8giEYBLGCu-JL9pIqnlfGUBrMYVQlrUmQXybLMOPy2xUsGy72wgzNmReVdZwE-3C" />
+                            </div>
+                            <div class="p-6 flex-1">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div>
+                                        <h4 class="text-xl font-bold">Cancha 2 - Outdoor Pro</h4>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">Superficie de alto agarre
+                                            • Ventilación natural</p>
+                                    </div>
+                                    <span
+                                        class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                        <span class="size-1.5 bg-primary rounded-full"></span>
+                                        Disponible
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3">
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">08:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">09:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">11:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">12:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">14:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">15:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">17:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">18:30</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">20:00</button>
+                                    <button
+                                        class="py-2 border border-slate-200 dark:border-border-dark rounded-lg text-sm font-medium hover:border-primary transition-all">21:30</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Reservation Sidebar -->
+            <aside class="w-full lg:w-[380px]">
+                <div class="sticky top-24 space-y-4">
+                    <div
+                        class="bg-slate-100 dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-xl">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">shopping_cart</span>
+                            Tu Reserva
+                        </h3>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="size-10 rounded-lg bg-background-dark flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">stadium</span>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tight">
+                                        Cancha</p>
+                                    <p class="font-semibold">Cancha 1 - Panoramic</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="size-10 rounded-lg bg-background-dark flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">event</span>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tight">
+                                        Fecha</p>
+                                    <p class="font-semibold">Hoy, 12 de Mayo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="size-10 rounded-lg bg-background-dark flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tight">
+                                        Horario</p>
+                                    <p class="font-semibold">09:30 - 11:00 (90 min)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-200 dark:border-border-dark pt-4 space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 dark:text-slate-400">Alquiler de cancha</span>
+                                <span>$35.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 dark:text-slate-400">Cargo de servicio</span>
+                                <span>$2.50</span>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold pt-2">
+                                <span>Total</span>
+                                <span class="text-primary">$37.50</span>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full mt-8 bg-primary hover:bg-primary/90 text-background-dark py-4 rounded-xl font-extrabold text-lg transition-all shadow-lg shadow-primary/10 active:scale-[0.98]">
+                            Confirmar Reserva
+                        </button>
+                        <p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
+                            Cancelaciones permitidas hasta 24h antes
+                        </p>
+                    </div>
+                    <!-- Additional Info Card -->
+                    <div class="bg-primary/5 border border-primary/20 p-4 rounded-xl">
+                        <div class="flex gap-3">
+                            <span class="material-symbols-outlined text-primary">info</span>
+                            <div class="text-sm">
+                                <p class="font-bold text-primary">Match making active</p>
+                                <p class="text-slate-600 dark:text-slate-400">Otras personas pueden ver esta reserva y
+                                    solicitar unirse si la haces pública.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <!-- Map/Location Footer (Simple) -->
+    <footer
+        class="mt-12 border-t border-slate-200 dark:border-border-dark py-12 px-6 lg:px-12 bg-slate-50 dark:bg-surface-dark/30">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="size-6 bg-primary rounded flex items-center justify-center text-background-dark">
+                        <span class="material-symbols-outlined text-sm font-bold">sports_tennis</span>
+                    </div>
+                    <h2 class="text-lg font-bold">Padel Club Center</h2>
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md">
+                    The premium destination for padel enthusiasts. 12 world-class courts, professional training, and a
+                    vibrant community.
+                </p>
+                <div class="flex gap-4">
+                    <span
+                        class="material-symbols-outlined p-2 rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-border-dark cursor-pointer hover:text-primary transition-colors">public</span>
+                    <span
+                        class="material-symbols-outlined p-2 rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-border-dark cursor-pointer hover:text-primary transition-colors">share</span>
+                    <span
+                        class="material-symbols-outlined p-2 rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-border-dark cursor-pointer hover:text-primary transition-colors">mail</span>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden h-40 border border-slate-200 dark:border-border-dark">
+                <div
+                    class="w-full h-full bg-slate-200 dark:bg-background-dark flex items-center justify-center relative">
+                    <img alt="Map location" class="w-full h-full object-cover opacity-50 grayscale"
+                        data-alt="Abstract stylized map background of a city center" data-location="Madrid, Spain"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMycpXm57QUdQYN0lc8IYCyQ3b5dAnosKUG9ydvwESzSQZYc-xunccAq_uRwcLnUW-0rDCH30su0xPVKEdSboSHurJjuesonk_xZScqSoO4VX-vdjkOPuqPWLDI0ymCmrltXBCjQ5OBkc3q99Q6lXWroqIkGioC259TQ40-NCkAqsM_BYfEE2MXEyuUPVlkjw8AsFlY82ndC_fT0z_CTESh6vW7Pf1JxRaz9E8Gn8P6H8-G7yzvcP6s7-dZN2seHIQa9jPyiOYIaEH" />
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-4xl fill-1">location_on</span>
+                        <p class="text-xs font-bold mt-1 bg-background-dark px-2 py-1 rounded">C. de Serrano, 61, Madrid
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1440px] mx-auto pt-8 mt-8 border-t border-slate-200 dark:border-border-dark flex flex-col md:flex-row justify-between gap-4 text-xs text-slate-500">
+            <p>© 2026 Padel Club Center. Todos los derechos reservados.</p>
+            <div class="flex gap-6">
+                <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+                <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-primary transition-colors" href="#">Cookie Settings</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

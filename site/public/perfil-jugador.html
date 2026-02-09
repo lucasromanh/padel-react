@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#80f20d",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(128, 242, 13, 0.4);
+        }
+
+        .neon-border {
+            border: 2px solid #80f20d;
+            box-shadow: 0 0 10px rgba(128, 242, 13, 0.5);
+        }
+
+        .bg-grid-subtle {
+            background-image: radial-gradient(#ffffff10 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Top Navigation Bar -->
+            <header
+                class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md px-6 md:px-10 lg:px-40 py-3 flex items-center justify-between whitespace-nowrap">
+                <div class="flex items-center gap-3">
+                    <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                        <span class="material-symbols-outlined font-bold">sports_tennis</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight leading-none uppercase italic text-white">Padel
+                            Hub</span>
+                        <span class="text-[10px] text-zinc-500 font-medium tracking-widest uppercase">Elite Club
+                            Management</span>
+                    </div>
+                </div>
+                <div class="flex flex-1 justify-end gap-8 items-center">
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                            href="index.html">Inicio</a>
+                        <a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                            href="reservas.html">Reservas</a>
+                        <a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                            href="partidos.html">Partidos</a>
+                        <a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                            href="torneos.html">Torneos</a>
+                        <a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                            href="ranking.html">Ranking</a>
+                    </nav>
+                    <div class="h-10 w-10 rounded-full border border-white/20 bg-center bg-cover"
+                        data-alt="User profile thumbnail avatar"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhu8AVE4kb36LJAv-gwBJUMm_GBVOVjEokpWw-LILp6COKxVyGsBAn0qrH3WHVe-LGdLWYDCOqzE72saHYghsctfihVl9HSLgyqWHQy1Yo7bqFLS1IwaGD724mfb7-rX-3HLDNgY58czFiC1c4HpvTz7L5jmu8e71o6E_XPxg_i_XE821N4_UF7ff_zeAmbzGaJSsg9R_0k6yxfaZTpO_jC4MVGFpP1rstXrjJM2nSqL8A5iiIfiovPkdbNZ2zwVbH_ZOQLQ3AucAk");'>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-10 py-8 space-y-8">
+                <!-- Profile Summary Card -->
+                <div class="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 md:p-8">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                        <span class="material-symbols-outlined text-[120px] text-primary">emoji_events</span>
+                    </div>
+                    <div
+                        class="flex flex-col md:flex-row items-center md:items-end justify-between gap-6 relative z-10">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="relative group">
+                                <div class="size-32 rounded-full neon-border p-1 bg-background-dark">
+                                    <div class="w-full h-full rounded-full bg-center bg-cover"
+                                        data-alt="Large circular professional padel player avatar"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHm6iclJmEv4IE-8z2O2Kvi8FyEK99ejm9qsbqO5rmXCVDw59QWd6FNKjRNXPMvWTPVJWDi9IIFzTnVG8YMAF9A6sM2UQZtXmMKgvqA94E9VMYK3aK34ME_Za1uBfq0AfTQI5SgLOA4RJ6VcmwUMynOFzSJ3UU1iXO-uDPjOT1SsHwED0FbTdUImwqsb3nK_At9kmVJT0XEmeeFgL-EPe3dc52i1HtqfsPFZPqD2OcmavODWAGZOHXtAfPl_jsrB6xKKaacM9uP-DI");'>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute -bottom-2 -right-2 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg border-2 border-background-dark">
+                                    PRO
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center md:items-start space-y-1">
+                                <h1 class="text-white text-3xl font-bold tracking-tight">Carlos Padelero</h1>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-primary text-lg font-semibold">Rating: 4.25</span>
+                                    <span class="h-1.5 w-1.5 rounded-full bg-white/20"></span>
+                                    <span
+                                        class="flex items-center gap-1.5 bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">
+                                        5 🔥 Winning Streak
+                                    </span>
+                                </div>
+                                <p class="text-white/50 text-sm">Miembro desde Octubre 2023 • Madrid Sur</p>
+                            </div>
+                        </div>
+                        <button
+                            class="flex items-center gap-2 bg-primary text-black hover:bg-primary/90 transition-all font-bold py-2.5 px-6 rounded-lg shadow-lg neon-glow">
+                            <span class="material-symbols-outlined text-sm">edit</span>
+                            <span>Editar Perfil</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Statistics Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <!-- Left: Progreso de Nivel Chart -->
+                    <div class="lg:col-span-7 flex flex-col gap-2 rounded-xl border border-white/10 bg-white/5 p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <h3 class="text-white text-lg font-semibold">Progreso de Nivel</h3>
+                                <p class="text-white/50 text-sm">Evolución técnica mensual</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-primary text-2xl font-bold tracking-tight">4.25</p>
+                                <p class="text-green-400 text-xs font-medium">+0.5% este semestre</p>
+                            </div>
+                        </div>
+                        <div class="flex min-h-[220px] flex-1 flex-col gap-4 py-4 relative">
+                            <svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 480 150"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 109C50 109 50 21 100 21C150 21 150 93 200 93C250 93 250 33 300 33C350 33 350 101 400 101C450 101 450 25 480 25V150H0V109Z"
+                                    fill="url(#neonGradient)"></path>
+                                <path
+                                    d="M0 109C50 109 50 21 100 21C150 21 150 93 200 93C250 93 250 33 300 33C350 33 350 101 400 101C450 101 450 25 480 25"
+                                    stroke="#80f20d" stroke-linecap="round" stroke-width="3"></path>
+                                <defs>
+                                    <lineargradient gradientunits="userSpaceOnUse" id="neonGradient" x1="0" x2="0"
+                                        y1="0" y2="150">
+                                        <stop stop-color="#80f20d" stop-opacity="0.3"></stop>
+                                        <stop offset="1" stop-color="#80f20d" stop-opacity="0"></stop>
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                            <div class="flex justify-between px-2">
+                                <span class="text-white/40 text-xs font-bold uppercase">Jan</span>
+                                <span class="text-white/40 text-xs font-bold uppercase">Feb</span>
+                                <span class="text-white/40 text-xs font-bold uppercase">Mar</span>
+                                <span class="text-white/40 text-xs font-bold uppercase">Apr</span>
+                                <span class="text-white/40 text-xs font-bold uppercase">May</span>
+                                <span class="text-white/40 text-xs font-bold uppercase">Jun</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right: KPI Cards -->
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div
+                            class="flex flex-col justify-center gap-1 rounded-xl border border-white/10 bg-white/5 p-6 hover:border-primary/50 transition-colors group">
+                            <p class="text-white/50 text-xs font-medium uppercase tracking-wider">Partidos Jugados</p>
+                            <p class="text-white text-3xl font-bold group-hover:text-primary transition-colors">48</p>
+                            <span
+                                class="material-symbols-outlined text-primary/30 absolute bottom-4 right-4 group-hover:text-primary transition-colors">sports_tennis</span>
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-1 rounded-xl border border-white/10 bg-white/5 p-6 hover:border-primary/50 transition-colors group">
+                            <p class="text-white/50 text-xs font-medium uppercase tracking-wider">Win Rate</p>
+                            <p class="text-white text-3xl font-bold group-hover:text-primary transition-colors">65%</p>
+                            <span
+                                class="material-symbols-outlined text-primary/30 absolute bottom-4 right-4 group-hover:text-primary transition-colors">analytics</span>
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-1 rounded-xl border border-white/10 bg-white/5 p-6 hover:border-primary/50 transition-colors group">
+                            <p class="text-white/50 text-xs font-medium uppercase tracking-wider">Puntos Ranking</p>
+                            <p class="text-white text-3xl font-bold group-hover:text-primary transition-colors">1250</p>
+                            <span
+                                class="material-symbols-outlined text-primary/30 absolute bottom-4 right-4 group-hover:text-primary transition-colors">military_tech</span>
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-1 rounded-xl border border-white/10 bg-white/5 p-6 hover:border-primary/50 transition-colors group">
+                            <p class="text-white/50 text-xs font-medium uppercase tracking-wider">Aces</p>
+                            <p class="text-white text-3xl font-bold group-hover:text-primary transition-colors">12</p>
+                            <span
+                                class="material-symbols-outlined text-primary/30 absolute bottom-4 right-4 group-hover:text-primary transition-colors">bolt</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Match History -->
+                <div class="rounded-xl border border-white/10 bg-white/5 overflow-hidden">
+                    <div class="px-6 py-4 border-b border-white/10 flex justify-between items-center">
+                        <h2 class="text-white text-xl font-bold">Historial de Partidos</h2>
+                        <button class="text-primary text-sm font-semibold hover:underline">Ver todo</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="text-white/40 text-xs uppercase bg-white/5">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold">Estado</th>
+                                    <th class="px-6 py-3 font-semibold">Pareja / Oponentes</th>
+                                    <th class="px-6 py-3 font-semibold text-center">Resultado</th>
+                                    <th class="px-6 py-3 font-semibold text-right">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/10">
+                                <!-- Row 1 -->
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-primary">WIN</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-white font-medium">con Miguel Ruiz</span>
+                                            <span class="text-white/40 text-xs">vs. J. Aranda, L. Vega</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-center font-bold text-white tracking-widest text-sm">
+                                        6-4 / 6-2
+                                    </td>
+                                    <td class="px-6 py-4 text-right text-white/50 text-xs">Ayer, 18:30</td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-primary">WIN</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-white font-medium">con Miguel Ruiz</span>
+                                            <span class="text-white/40 text-xs">vs. P. Santos, R. Gomez</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-center font-bold text-white tracking-widest text-sm">
+                                        7-5 / 6-4
+                                    </td>
+                                    <td class="px-6 py-4 text-right text-white/50 text-xs">15 Oct, 10:00</td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/50">LOSS</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-white font-medium">con Miguel Ruiz</span>
+                                            <span class="text-white/40 text-xs">vs. A. Beltrán, S. Marín</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-center font-bold text-white tracking-widest text-sm">
+                                        6-3 / 4-6 / 2-6
+                                    </td>
+                                    <td class="px-6 py-4 text-right text-white/50 text-xs">12 Oct, 20:15</td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-primary">WIN</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-white font-medium">con Carlos G.</span>
+                                            <span class="text-white/40 text-xs">vs. J. Diez, F. Lopez</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-center font-bold text-white tracking-widest text-sm">
+                                        6-1 / 6-0
+                                    </td>
+                                    <td class="px-6 py-4 text-right text-white/50 text-xs">08 Oct, 19:00</td>
+                                </tr>
+                                <!-- Row 5 -->
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-primary">WIN</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-white font-medium">con J. Ortega</span>
+                                            <span class="text-white/40 text-xs">vs. M. Salas, K. Ruiz</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-center font-bold text-white tracking-widest text-sm">
+                                        6-4 / 6-3
+                                    </td>
+                                    <td class="px-6 py-4 text-right text-white/50 text-xs">05 Oct, 17:30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Achievements Section -->
+                <div class="space-y-4">
+                    <h2 class="text-white text-xl font-bold">Logros Obtenidos</h2>
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex flex-col items-center gap-3 group">
+                            <div
+                                class="size-20 rounded-full bg-white/5 border border-primary/40 flex items-center justify-center neon-glow group-hover:scale-105 transition-transform cursor-pointer">
+                                <span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
+                            </div>
+                            <span class="text-xs font-bold text-white/70 uppercase tracking-tighter text-center">MVP
+                                Semanal</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3 group">
+                            <div
+                                class="size-20 rounded-full bg-white/5 border border-primary/40 flex items-center justify-center neon-glow group-hover:scale-105 transition-transform cursor-pointer">
+                                <span class="material-symbols-outlined text-primary text-3xl">emoji_events</span>
+                            </div>
+                            <span class="text-xs font-bold text-white/70 uppercase tracking-tighter text-center">Campeón
+                                Open</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3 group">
+                            <div
+                                class="size-20 rounded-full bg-white/5 border border-primary/40 flex items-center justify-center neon-glow group-hover:scale-105 transition-transform cursor-pointer">
+                                <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                            </div>
+                            <span class="text-xs font-bold text-white/70 uppercase tracking-tighter text-center">Socio
+                                Fundador</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3 group opacity-30 grayscale">
+                            <div
+                                class="size-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white/50 text-3xl">stars</span>
+                            </div>
+                            <span class="text-xs font-bold text-white/40 uppercase tracking-tighter text-center">Rey de
+                                Pista</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3 group opacity-30 grayscale">
+                            <div
+                                class="size-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white/50 text-3xl">military_tech</span>
+                            </div>
+                            <span class="text-xs font-bold text-white/40 uppercase tracking-tighter text-center">100
+                                Victorias</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer Footer (Minimal) -->
+            <footer class="mt-auto border-t border-white/10 py-8 px-10 text-center">
+                <p class="text-white/30 text-xs">© 2026 Padel Club Hub. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

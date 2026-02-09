@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Padel Hub - Gestión Integral de Clubes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#afff24",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#0a0a0a",
+                        "card-dark": "#161616",
+                        "border-dark": "#262626",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-pattern {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(#afff2410 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(175, 255, 36, 0.2);
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            background-color: rgba(10, 10, 10, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-zinc-900 dark:text-zinc-100 antialiased selection:bg-primary selection:text-background-dark">
+<!-- Sticky Navigation Bar -->
+<header class="fixed top-0 w-full z-50 glass-header border-b border-zinc-200 dark:border-border-dark">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-background-dark font-bold">sports_tennis</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-black tracking-tight leading-none uppercase italic">Padel Hub</span>
+<span class="text-[10px] text-zinc-500 font-medium tracking-widest uppercase">Elite Club Management</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="reservas.html">Reservas</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="partidos.html">Partidos</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="torneos.html">Torneos</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="tablero-general.html">Tableros</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="ranking.html">Ranking</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="login.html" class="px-5 py-2.5 bg-primary text-background-dark text-sm font-bold rounded-lg hover:scale-105 transition-transform active:scale-95 inline-block text-center">
+                    Login / Registro
+                </a>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center justify-center hero-pattern overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/50 to-background-dark"></div>
+<!-- Abstract decorative element -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                    Nueva Temporada Disponible
+                </div>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                    Gestión integral de tu <span class="text-primary italic">club de pádel</span>
+</h1>
+<p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    La plataforma definitiva para gestionar pistas, organizar partidos competitivos y torneos profesionales con tableros digitales en tiempo real.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a href="reservas.html" class="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-black rounded-xl text-lg hover:shadow-[0_0_30px_rgba(175,255,36,0.4)] transition-all inline-block text-center">
+                        Ir a Reservas
+                    </a>
+<a href="tablero-general.html" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-zinc-700 text-white font-bold rounded-xl text-lg hover:bg-zinc-800 transition-all inline-block text-center">
+                        Ver tableros en vivo
+                    </a>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="max-w-xl">
+<h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-3">Ecosistema Padel Hub</h2>
+<h3 class="text-4xl font-black text-white italic">Domina la pista, nosotros gestionamos el resto.</h3>
+</div>
+<p class="text-zinc-500 max-w-sm">Herramientas diseñadas específicamente para el flujo dinámico de un club de alto rendimiento.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Feature 1 -->
+<div class="group p-8 rounded-xl bg-card-dark border border-border-dark hover:border-primary/50 transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">calendar_month</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-white">Reservas Simples</h4>
+<p class="text-zinc-500 text-sm leading-relaxed">Sistema de reservas intuitivo en 3 clics para socios y visitantes ocasionales.</p>
+</div>
+<!-- Feature 2 -->
+<div class="group p-8 rounded-xl bg-card-dark border border-border-dark hover:border-primary/50 transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-white">Gestión de Partidos</h4>
+<p class="text-zinc-500 text-sm leading-relaxed">Organiza partidas abiertas por nivel y encuentra jugadores compatibles al instante.</p>
+</div>
+<!-- Feature 3 -->
+<div class="group p-8 rounded-xl bg-card-dark border border-border-dark hover:border-primary/50 transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">trophy</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-white">Torneos Pro</h4>
+<p class="text-zinc-500 text-sm leading-relaxed">Gestión completa de cuadros, ligas, y fases de eliminación profesionales.</p>
+</div>
+<!-- Feature 4 -->
+<div class="group p-8 rounded-xl bg-card-dark border border-border-dark hover:border-primary/50 transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">tv</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-white">Tableros TV</h4>
+<p class="text-zinc-500 text-sm leading-relaxed">Transmisión de resultados y horarios en vivo para las pantallas físicas del club.</p>
+</div>
+</div>
+</section>
+<!-- Role Access Section -->
+<section class="py-24 bg-zinc-900/50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black text-white mb-4">Experiencia Personalizada</h2>
+<p class="text-zinc-400">Diferentes herramientas para cada perfil de usuario en el ecosistema.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Jugador -->
+<div class="flex flex-col bg-background-dark rounded-2xl border border-border-dark overflow-hidden group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60" data-alt="Dynamic shot of a padel player hitting a ball" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6BTkTO6-6n899DZ4tyS-movY9r8o1DwU65bFvZYNaVV4K3jGFlgKm-sMorNGYCmniGaXn0bD409nj4TVqXr1YbxIlwT5EIja3nBsF3VuvJNmiC60oqMRrL9pq4Xx9RNrrCAxq4dQG2aXxc78BxNmUnyB986A5BO-3mKvv8YfxqZ2SNVBLT10b0TnBP4_WJiXnnVDfmVwoY9A4cWig9NX7Z0Bf42JtDLpDq_j6wBcnS1Fojolews0jUevjNLF-Fe_ZcO8bR4zyfwl_"/>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<span class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Usuario Final</span>
+<h4 class="text-2xl font-black text-white mb-4">Jugador</h4>
+<ul class="space-y-3 mb-8 text-zinc-400 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Reserva pistas en tiempo real</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Sigue tu ranking y estadísticas</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Únete a partidos abiertos</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg border border-zinc-700 text-white font-bold hover:bg-zinc-800 transition-colors">Acceso Jugador</button>
+</div>
+</div>
+<!-- Operador -->
+<div class="flex flex-col bg-background-dark rounded-2xl border border-primary/30 overflow-hidden group ring-1 ring-primary/20">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60" data-alt="Club staff member using a modern point of sale system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7v2i1eipwFfDHkfNRYp0HgcnE6dKcFOnHz6_ZFnq2Ytrb4qZ4PpKvXYAmVAbE4WLizkR2abQNEgmzOv_LYLk7BH6UQQeEgNq6JraQmPDqIh487aEp385Q8MiGcZ9b2FaEx3OQTMP_df8vCt-sh8WzHree8MoRm-1g8X9CSpu0sZRE7oov0j_BxsVqrh5sjnNOrD0OAIWDs6muUUuEc5YdCxYLcdNwzSJ4d7QrBvwyxJRYpnsXdbNkHSz9ZqzUdHPVVJMyvaE9qrsN"/>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<span class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Staff del Club</span>
+<h4 class="text-2xl font-black text-white mb-4">Operador</h4>
+<ul class="space-y-3 mb-8 text-zinc-400 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Gestión de recepción (Check-in)</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Control de luces y accesos</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Venta de productos y alquileres</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg bg-primary text-background-dark font-black hover:brightness-110 transition-all">Acceso Staff</button>
+</div>
+</div>
+<!-- Administrador -->
+<div class="flex flex-col bg-background-dark rounded-2xl border border-border-dark overflow-hidden group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60" data-alt="Dashboard showing financial charts and user growth data" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEL5HroV4580LWBibIDBvmsvTIaGp2w8htEmeQlv5GRzHWmTY1AADYDQ_QwpebN9Ss_mfs03lu81RtpJSl5In6ZEfGv3MxLHbdEFWqspRxMiSoZMP3id6dMiGYR4CKzgRQSxxqFSEghEC94lMqcM5lTevDHr70fUUNFwuAHfSmYVT1f5jNJ89pnC3oQ2gdVm_laEFHuwkWKpWQivfEWhb-p7WeXowMu_pOfhon-jeyWtaRb4s8ZCSm_MK_eAAudN7Z1xczKJzcIGT7"/>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<span class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Gestión Estratégica</span>
+<h4 class="text-2xl font-black text-white mb-4">Administrador</h4>
+<ul class="space-y-3 mb-8 text-zinc-400 text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Reportes financieros detallados</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Configuración de tarifas y bonos</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Análisis de ocupación y ROI</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg border border-zinc-700 text-white font-bold hover:bg-zinc-800 transition-colors">Panel Admin</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="py-24 max-w-7xl mx-auto px-6 overflow-hidden">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-black text-white italic mb-4">Listo para jugar en 3 pasos</h2>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="relative">
+<!-- Connecting Line -->
+<div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-zinc-800 -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-background-dark border-4 border-zinc-800 flex items-center justify-center mb-8 relative">
+<span class="absolute -top-2 -right-2 bg-primary text-background-dark w-8 h-8 rounded-full flex items-center justify-center font-black text-sm">1</span>
+<span class="material-symbols-outlined text-primary text-4xl">person_add</span>
+</div>
+<h4 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Registro</h4>
+<p class="text-zinc-500 max-w-xs">Crea tu perfil de jugador en segundos y valida tu nivel para partidas competitivas.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-background-dark border-4 border-primary flex items-center justify-center mb-8 relative shadow-[0_0_20px_rgba(175,255,36,0.2)]">
+<span class="absolute -top-2 -right-2 bg-primary text-background-dark w-8 h-8 rounded-full flex items-center justify-center font-black text-sm">2</span>
+<span class="material-symbols-outlined text-primary text-4xl">event_available</span>
+</div>
+<h4 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Reserva</h4>
+<p class="text-zinc-500 max-w-xs">Elige tu pista favorita, horario y añade extras como palas de test o pelotas nuevas.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-background-dark border-4 border-zinc-800 flex items-center justify-center mb-8 relative">
+<span class="absolute -top-2 -right-2 bg-primary text-background-dark w-8 h-8 rounded-full flex items-center justify-center font-black text-sm">3</span>
+<span class="material-symbols-outlined text-primary text-4xl">stadium</span>
+</div>
+<h4 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Partido en vivo</h4>
+<p class="text-zinc-500 max-w-xs">Llega al club, escanea tu QR y disfruta del partido con marcadores digitales.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-card-dark border-t border-border-dark py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2 opacity-80">
+<span class="material-symbols-outlined text-primary">sports_tennis</span>
+<span class="text-lg font-black tracking-tight uppercase italic text-white">Padel Hub</span>
+</div>
+<p class="text-zinc-500 text-xs">© 2026 Padel Hub. Todos los derechos reservados.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-xs font-semibold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest" href="#">Privacidad</a>
+<a class="text-xs font-semibold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest" href="#">Términos</a>
+<a class="text-xs font-semibold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest" href="#">Cookies</a>
+<a class="text-xs font-semibold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest" href="#">Soporte</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

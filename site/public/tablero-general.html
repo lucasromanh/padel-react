@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Live General Scoreboard - Padel Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#afff24",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#121212",
+                        "court-charcoal": "#1e1e1e",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            overflow: hidden;
+            /* Prevent scrolling for TV view */
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #000;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker 30s linear infinite;
+            color: #afff24;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(175, 255, 36, 0.5);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 15px rgba(175, 255, 36, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col font-display">
+    <!-- Scrolling Ticker -->
+    <div class="ticker-wrap border-b border-white/10">
+        <div class="ticker">
+            Torneo Open este sábado - Inscripciones abiertas • Nuevas palas disponibles en el Pro Shop • Clases grupales
+            nivel intermedio los martes 19:00 • ¡Bienvenido a Padel Club Hub! •
+        </div>
+    </div>
+    <!-- Top Navigation Bar -->
+    <header class="px-8 py-6 flex items-center justify-between bg-background-dark border-b border-white/5">
+        <div class="flex items-center gap-3">
+            <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                <span class="material-symbols-outlined font-bold">sports_tennis</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-xl font-black tracking-tight leading-none uppercase italic">Padel Hub</span>
+                <span class="text-[10px] text-zinc-500 font-medium tracking-widest uppercase">Elite Club
+                    Management</span>
+            </div>
+            <a href="index.html"
+                class="ml-4 text-[10px] bg-white/10 px-2 py-1 rounded text-slate-400 hover:text-primary transition-colors">Volver
+                al Inicio</a>
+        </div>
+        <div class="flex items-center gap-10">
+            <div class="flex flex-col items-end">
+                <span class="text-5xl font-extrabold text-white tracking-tighter tabular-nums">18:45:30</span>
+                <span class="text-primary text-xs font-bold uppercase tracking-widest">Viernes, 6 de Febrero</span>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="flex-1 grid grid-cols-12 gap-6 p-6">
+        <!-- Main Scoreboard Grid (Left/Center) -->
+        <div class="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Court 1 -->
+            <div class="bg-court-charcoal rounded-xl border border-white/5 flex flex-col overflow-hidden neon-border">
+                <div class="bg-white/5 px-6 py-3 flex justify-between items-center border-b border-white/5">
+                    <span class="text-primary font-bold tracking-widest uppercase">Cancha 1</span>
+                    <div class="flex items-center gap-2">
+                        <span class="size-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold uppercase text-white/40 tracking-widest">En Vivo</span>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-center space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-primary text-2xl fill-1">sports_tennis</span>
+                                <h2 class="text-2xl font-bold">Galan / Lebron</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">6</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">2</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-4xl font-black text-primary neon-glow">
+                                30</div>
+                        </div>
+                    </div>
+                    <div class="h-px bg-white/5"></div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col opacity-60">
+                            <div class="flex items-center gap-3">
+                                <div class="size-6"></div> <!-- Spacer for non-serving -->
+                                <h2 class="text-2xl font-bold">Coello / Tapia</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2 opacity-40">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">4</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">3</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-white/5 flex items-center justify-center text-4xl font-black text-white/20">
+                                15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Court 2 -->
+            <div class="bg-court-charcoal rounded-xl border border-white/5 flex flex-col overflow-hidden">
+                <div class="bg-white/5 px-6 py-3 flex justify-between items-center border-b border-white/5">
+                    <span class="text-primary font-bold tracking-widest uppercase">Cancha 2</span>
+                    <div class="flex items-center gap-2">
+                        <span class="size-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold uppercase text-white/40 tracking-widest">Live Match</span>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-center space-y-6">
+                    <div class="flex items-center justify-between opacity-60">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <div class="size-6"></div>
+                                <h2 class="text-2xl font-bold">Belasteguín / Tello</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2 opacity-40">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">3</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">6</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-white/5 flex items-center justify-center text-4xl font-black text-white/20">
+                                5</div>
+                        </div>
+                    </div>
+                    <div class="h-px bg-white/5"></div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-primary text-2xl fill-1">sports_tennis</span>
+                                <h2 class="text-2xl font-bold">Navarro / Paquito</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">6</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">6</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-4xl font-black text-primary neon-glow">
+                                2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Court 3 -->
+            <div class="bg-court-charcoal rounded-xl border border-white/5 flex flex-col overflow-hidden">
+                <div class="bg-white/5 px-6 py-3 flex justify-between items-center border-b border-white/5">
+                    <span class="text-primary font-bold tracking-widest uppercase">Cancha 3</span>
+                    <div class="flex items-center gap-2">
+                        <span class="size-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold uppercase text-white/40 tracking-widest">Live Match</span>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-center space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-primary text-2xl fill-1">sports_tennis</span>
+                                <h2 class="text-2xl font-bold">Chingotto / Galan</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">1</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">0</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-4xl font-black text-primary neon-glow">
+                                15</div>
+                        </div>
+                    </div>
+                    <div class="h-px bg-white/5"></div>
+                    <div class="flex items-center justify-between opacity-60">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <div class="size-6"></div>
+                                <h2 class="text-2xl font-bold">Stupa / Di Nenno</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2 opacity-40">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">0</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">0</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-white/5 flex items-center justify-center text-4xl font-black text-white/20">
+                                40</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Court 4 -->
+            <div class="bg-court-charcoal rounded-xl border border-white/5 flex flex-col overflow-hidden">
+                <div class="bg-white/5 px-6 py-3 flex justify-between items-center border-b border-white/5">
+                    <span class="text-primary font-bold tracking-widest uppercase">Cancha 4</span>
+                    <div class="flex items-center gap-2">
+                        <span class="size-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold uppercase text-white/40 tracking-widest">Live Match</span>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-center space-y-6">
+                    <div class="flex items-center justify-between opacity-60">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <div class="size-6"></div>
+                                <h2 class="text-2xl font-bold">Sanchez / Josemar</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2 opacity-40">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">6</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold">5</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-white/5 flex items-center justify-center text-4xl font-black text-white/20">
+                                0</div>
+                        </div>
+                    </div>
+                    <div class="h-px bg-white/5"></div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-primary text-2xl fill-1">sports_tennis</span>
+                                <h2 class="text-2xl font-bold">Gonzalez / Brea</h2>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex gap-2">
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">2</span>
+                                <span
+                                    class="size-12 rounded bg-white/5 flex items-center justify-center text-xl font-bold text-white/50">5</span>
+                            </div>
+                            <div
+                                class="size-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-4xl font-black text-primary neon-glow">
+                                15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar: Próximos Turnos -->
+        <div
+            class="col-span-12 lg:col-span-3 bg-court-charcoal rounded-xl border border-white/5 flex flex-col overflow-hidden">
+            <div class="bg-white/10 p-5 border-b border-white/5">
+                <h3 class="text-xl font-bold flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">schedule</span>
+                    Próximos Turnos
+                </h3>
+            </div>
+            <div class="flex-1 overflow-y-auto custom-scrollbar">
+                <div class="p-2 space-y-2">
+                    <!-- Turno Item -->
+                    <div class="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
+                        <div
+                            class="flex flex-col items-center justify-center bg-primary text-background-dark font-black px-2 py-1 rounded min-w-[64px]">
+                            <span class="text-lg">19:00</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-bold text-primary uppercase tracking-widest">Cancha 1</p>
+                            <p class="text-sm font-semibold truncate">Ruiz / Cardona</p>
+                        </div>
+                    </div>
+                    <!-- Turno Item -->
+                    <div class="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
+                        <div
+                            class="flex flex-col items-center justify-center bg-white/10 text-white font-black px-2 py-1 rounded min-w-[64px]">
+                            <span class="text-lg">19:00</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Cancha 2</p>
+                            <p class="text-sm font-semibold truncate">Momo / Sanyo</p>
+                        </div>
+                    </div>
+                    <!-- Turno Item -->
+                    <div class="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
+                        <div
+                            class="flex flex-col items-center justify-center bg-white/10 text-white font-black px-2 py-1 rounded min-w-[64px]">
+                            <span class="text-lg">19:30</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Cancha 3</p>
+                            <p class="text-sm font-semibold truncate">Rubio / Sanchez</p>
+                        </div>
+                    </div>
+                    <!-- Turno Item -->
+                    <div class="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
+                        <div
+                            class="flex flex-col items-center justify-center bg-white/10 text-white font-black px-2 py-1 rounded min-w-[64px]">
+                            <span class="text-lg">20:00</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Cancha 4</p>
+                            <p class="text-sm font-semibold truncate">Campa / Leal</p>
+                        </div>
+                    </div>
+                    <!-- Turno Item -->
+                    <div class="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
+                        <div
+                            class="flex flex-col items-center justify-center bg-white/10 text-white font-black px-2 py-1 rounded min-w-[64px]">
+                            <span class="text-lg">20:00</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Cancha 1</p>
+                            <p class="text-sm font-semibold truncate">Capra / Chozas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-5 bg-background-dark/50 border-t border-white/5">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-white/40 uppercase">Estado</span>
+                    <span class="text-xs font-bold text-primary">Ocupación Total</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bottom Bar: Sponsors -->
+    <footer class="h-20 bg-background-dark border-t border-white/5 px-8 flex items-center justify-between">
+        <div class="flex items-center gap-8 opacity-30 grayscale hover:grayscale-0 transition-all cursor-default">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">sports_basketball</span>
+                <span class="font-bold text-xl uppercase italic">Bullpadel</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">electric_bolt</span>
+                <span class="font-bold text-xl uppercase italic">Volt</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">star</span>
+                <span class="font-bold text-xl uppercase italic">Head</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">water_drop</span>
+                <span class="font-bold text-xl uppercase italic">Aquarius</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-medium text-white/40">Powered by</span>
+            <div class="flex items-center gap-2">
+                <div class="size-6 bg-white/10 rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-sm">terminal</span>
+                </div>
+                <span class="text-sm font-bold tracking-tight">PadelHub Engine v2.4</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

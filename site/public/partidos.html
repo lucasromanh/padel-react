@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Padel Club - Partidos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#afff24",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#121212",
+                        "court-charcoal": "#121212",
+                        "card-dark": "#1c1c1c",
+                        "border-muted": "#333a27",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+    <!-- Header / Navigation -->
+    <header class="border-b border-border-muted bg-white dark:bg-background-dark sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-10 bg-primary flex items-center justify-center rounded-lg text-background-dark">
+                    <span class="material-symbols-outlined font-bold">sports_tennis</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight">Padel Club</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+                    href="index.html">Inicio</a>
+                <a class="text-slate-900 dark:text-primary border-b-2 border-primary py-7 text-sm font-bold"
+                    href="partidos.html">Partidos</a>
+                <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+                    href="reservas.html">Reservas</a>
+                <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+                    href="ranking.html">Ranking</a>
+                <a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium"
+                    href="torneos.html">Torneos</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="p-2 text-slate-400 hover:text-primary">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <div class="size-10 rounded-full border-2 border-primary overflow-hidden">
+                    <img class="w-full h-full object-cover" data-alt="User profile avatar of a male player"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKN0m2DTQ3lPk4Ey-WTkpfCt9f-iEQOcBEoDX2p6yHkquRgXci6Is6LlOGNlAf9iwzdxtD8B1lXyGYlKmQtJOtgo3QKH7VXCBiT-DldLNm8EwFMl99U97WgqBbH39thPxE0wSFFXL1AXMnOe4cwHHImMHC_1MO8dJmLD4mOe_KU1SNWkdd0qH0R8lLn9mY-pdBwWoz4n0-cXVzpMtaBalLRfxTHqw-ZmEX4pGR507LHwv8Jnd7Ji8W3he1vxKNjSNDhi_vk7sjf0sr" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-8 w-full">
+        <!-- Top Action Bar -->
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
+            <div class="relative w-full md:max-w-md">
+                <span
+                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                <input
+                    class="w-full bg-white dark:bg-card-dark border border-border-muted rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-500"
+                    placeholder="Buscar por pista o jugador..." type="text" />
+            </div>
+            <button
+                class="w-full md:w-auto flex items-center justify-center gap-2 bg-primary text-background-dark px-6 py-3 rounded-xl font-bold hover:scale-[1.02] transition-transform active:scale-95">
+                <span class="material-symbols-outlined">add</span>
+                Crear Partido Abierto
+            </button>
+        </div>
+        <!-- Filter Section -->
+        <div class="flex flex-col gap-6 mb-10">
+            <div class="flex flex-col gap-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Filtrar por Tipo</span>
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        class="bg-primary text-background-dark px-5 py-2 rounded-lg text-sm font-semibold border border-primary">Todos</button>
+                    <button
+                        class="bg-white dark:bg-card-dark text-slate-700 dark:text-white px-5 py-2 rounded-lg text-sm font-semibold border border-border-muted hover:border-primary transition-colors">Amistosos</button>
+                    <button
+                        class="bg-white dark:bg-card-dark text-slate-700 dark:text-white px-5 py-2 rounded-lg text-sm font-semibold border border-border-muted hover:border-primary transition-colors">Ranked</button>
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Nivel de Juego</span>
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        class="bg-white dark:bg-card-dark text-slate-700 dark:text-white px-5 py-2 rounded-lg text-sm font-semibold border border-border-muted hover:border-primary transition-colors">Principiante</button>
+                    <button
+                        class="bg-primary text-background-dark px-5 py-2 rounded-lg text-sm font-semibold border border-primary">Intermedio</button>
+                    <button
+                        class="bg-white dark:bg-card-dark text-slate-700 dark:text-white px-5 py-2 rounded-lg text-sm font-semibold border border-border-muted hover:border-primary transition-colors">Avanzado</button>
+                </div>
+            </div>
+        </div>
+        <!-- Match Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Match Card 1 -->
+            <div
+                class="bg-white dark:bg-card-dark rounded-xl border border-border-muted p-5 hover:border-primary/50 transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold">Lun, 12 Oct • 18:30</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Pista Central
+                        </p>
+                    </div>
+                    <span
+                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase border border-primary/20">Ranked</span>
+                </div>
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm text-slate-400">Nivel Requerido</span>
+                        <span class="text-sm font-bold text-primary">3.0 - 4.5</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-primary h-full w-[70%]" style="margin-left: 20%;"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 mt-auto">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-400">Jugadores (2/4)</span>
+                        <div class="flex -space-x-3">
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of male player 1"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFyN0A_y446OtF9N6iT0pB9toT7oxsaQq_SYNABbDiZU-AE4vqz7bL8KasFT0kG3Wy3HVGdxFVS96vMCg3EkQ39fi5EnwLioVzrjIN6C0WsnpzumZa9QdVCCMwHiNpz07_RWahRS3i1D90io8Yx6fiKRgwBYVH9AIc68A8Chfip6agcqMBnL3QRKV0C1WS-Syq6OdEQDnCsmWUoPjh_2Xxw2Jacw9JUJIjc36SlVLIs7emx2cQMUUqm1Xf8FSTfe6GTB8WolDjHMT-" />
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of female player 2"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH45xIT3S4SS-DCBMvFYbOBlhKIiYXe-t07U-MjbLK_Dhmfu5jk9G9hyapvNbLBH1A0MsD3QWGKIo2OH0PaMvdwCkQSCz2RbgS83c_XZzTdFNJ34jiUfmPkAV3aRNC2ieUlCVdbXl-xU4ki4T2_wuVVIjJ-AE7xSqsAtw4mdr7qN6541gkindJ8_m-dlAJsTXkeQCE_KVZFck0gbclNJwwrHCydA3uGw1QqAh6qts964soA0IJuAxMLmvNrpfCEx4lUOWvfwWdn663" />
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:brightness-110 transition-all">Unirme
+                        al Partido</button>
+                </div>
+            </div>
+            <!-- Match Card 2 -->
+            <div
+                class="bg-white dark:bg-card-dark rounded-xl border border-border-muted p-5 hover:border-primary/50 transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold">Mar, 13 Oct • 17:00</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Pista 4
+                        </p>
+                    </div>
+                    <span
+                        class="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full text-xs font-bold uppercase border border-slate-300 dark:border-slate-700">Amistoso</span>
+                </div>
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm text-slate-400">Nivel Requerido</span>
+                        <span class="text-sm font-bold text-primary">2.0 - 3.5</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-primary h-full w-[40%]" style="margin-left: 10%;"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 mt-auto">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-400">Jugadores (1/4)</span>
+                        <div class="flex -space-x-3">
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of male player 3"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLiL6yvloHhWUl-Nh-UOllr1YRaHsXlcXHTFeoTaSH0uf2cOLx-xH2klYrkl4r16LuRDaAjA6X2Haiqi2MSeLTVI_yUxy1u4j20PuQo7LUc9HIQ83sreKmzBeeGsXryw9Rk534BTarr8MD27Azz1ejgBvnuovq6Lt-f0z37tFJMTC6r8pcZFzipJfT2Z0VdMToQlL-U4HayJRqYmtBP8WGvbj5dowQ-5g7fTCPW9zlU9PgDOjatD-EIRRSUsAwYCMfbgcm2jDiMH75" />
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:brightness-110 transition-all">Unirme
+                        al Partido</button>
+                </div>
+            </div>
+            <!-- Match Card 3 -->
+            <div
+                class="bg-white dark:bg-card-dark rounded-xl border border-border-muted p-5 hover:border-primary/50 transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold">Mié, 14 Oct • 20:00</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Pista Indoor
+                        </p>
+                    </div>
+                    <span
+                        class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase border border-primary/20">Ranked</span>
+                </div>
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm text-slate-400">Nivel Requerido</span>
+                        <span class="text-sm font-bold text-primary">4.0 - 5.5</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-primary h-full w-[40%]" style="margin-left: 55%;"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 mt-auto">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-400">Jugadores (3/4)</span>
+                        <div class="flex -space-x-3">
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of female player 4"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9D2hVvc-vb4_DbASXLEYxq0ZnyrceyiQ_F23rhOfDYgPLBtDJNMBWxwo0vuPxvU4ir3fnmksd975vA7humC4OlqhBdOkgZ4MjSphdeOlIvxA2RM2kW1i4ONCzz5UOV_ibciRcAJ9JpzH6UtsuEyY650XhtCrU0E78lNFs7hcVUXaSXDstZQAvLNX2j4ScVJwYAZCbTWAHYWmY920Qyup7gxFSeHP3ADhNXDJvipGKKgzyyLYwWyWGqoTxkeDwdQD2e2FnQBCn_l5c" />
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of male player 5"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcAjPsXICYaaTV-K-pS7l5ajBUcyPeoK-qjJMCtGvOXL_3JCQIoMwf-2kH0NC7Vn9SMmd9fE92_XSRt9ahgNaqXxtAJ7Iu_wEGAujN4ho1IjgBLI-RJSPNat11ea6bNI8kH8EGlaABc_7CTwdg6c6TI2Nbof0Q-ihiXlaA6Y88kLgSJgVcigqoJpFlwGOzoike1Q7j3Y_HTYHTceJ9XLOJBVx-vvHhyK8pov8-IWKWY6rD-y11NLkHltYy7_3xycDYnPp7inpGHUZy" />
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of female player 6"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Lez4PW3JBKvnbYM-LDLkpeBvQbNixgYBK9EToTe69-IEZEhDg5welGqmzr5xLkUzQZLTIRLggQXYb44oxCuu1_gaqmSOoDYst4cLKVl3urC7_JjLpLhdnCbwB_2AfMRPXrCVGrWw3zMn0XRVBIZkeo-v26iYICDLUbZ9VFhYcu4z8SbOJ_Y2jRLmn6qq9p4QPkg2b0YkpJ2BRANG1zx1yFVUwWNmE_L3zFv0meoycfTx5bqGITYee-SaIsQnA3D8IbaeZsQ_RSaL" />
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:brightness-110 transition-all">Unirme
+                        al Partido</button>
+                </div>
+            </div>
+            <!-- Additional card 4 for grid visualization -->
+            <div
+                class="bg-white dark:bg-card-dark rounded-xl border border-border-muted p-5 hover:border-primary/50 transition-all group flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold">Jue, 15 Oct • 19:00</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Pista 2
+                        </p>
+                    </div>
+                    <span
+                        class="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full text-xs font-bold uppercase border border-slate-300 dark:border-slate-700">Amistoso</span>
+                </div>
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm text-slate-400">Nivel Requerido</span>
+                        <span class="text-sm font-bold text-primary">3.0 - 4.0</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-primary h-full w-[30%]" style="margin-left: 35%;"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 mt-auto">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-400">Jugadores (2/4)</span>
+                        <div class="flex -space-x-3">
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of male player 7"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANcH2jEh6_L0KiPwij_mxm2NTCVrNFEkMz3QEPswajaqGTgFdQE8pOIsoYY2tZXKgLWvAwiATJnZlUWCUZA6ghXEi0tp8z_NuVpQn-DJ4cHoCrZiMNi1RwelwnDv9bt3q4dxXEuS1I7fDQe7rnQyQSl85AcBEI_GcdGqznPzXmRHALJNf5TGCwIuTbgiK99vZfdPN9SUEZM0-gWHUJY4OvdMtKlb7Yp2OKq9R_psM6t0kJjF-P6XkJ8S6I1pyN4DsKzVcW9P8Q_bp4" />
+                            <img class="size-8 rounded-full border-2 border-card-dark"
+                                data-alt="Avatar of female player 8"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrwvG7stCgdrLCOYBt73p8dtFCrwkQQnFpdMbi32Sixqk6Pqcb4SaHiaeHy__kFkF41uvLPqoRDqBAwpSF-u8yd7dRufVFe_Nrjkmf6EaQm_V15SVLKOMVHoeJ15PMrlRi2mnwJwUf1ic82J_rJh4nP3dhMbT8vUcqgf_mUoE9UUg74e2SiJGhUJtOa0ae-C2Q_e4E1HLCx5yg-53dipgTwNHgfBFNyrGkmiZfWUXCtQMt-lUBeT5qSarwyHciULGKRynz2Fe8zpI9" />
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                            <div
+                                class="size-8 rounded-full border-2 border-dashed border-slate-600 bg-transparent flex items-center justify-center text-slate-600">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:brightness-110 transition-all">Unirme
+                        al Partido</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer for context -->
+    <footer class="mt-auto border-t border-border-muted py-10 bg-white dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">sports_tennis</span>
+                <span class="font-bold text-slate-400">Padel Club Hub © 2026</span>
+            </div>
+            <div class="flex gap-8 text-sm text-slate-500">
+                <a class="hover:text-primary transition-colors" href="#">Términos</a>
+                <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+                <a class="hover:text-primary transition-colors" href="#">Soporte</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
